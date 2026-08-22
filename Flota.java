@@ -21,7 +21,7 @@ public class Flota {
     }
 
     // Devuelve la lista de barcos que serán destruidos en la posición (longitud, latitud)
-    public ArrayList<Barco> seranDestruidos(int longitud, int latitude){
+    public ArrayList<Barco> seranDestruidos(int longitud, int latitud){
         return new ArrayList<Barco>();
     }
 }
