@@ -1,7 +1,8 @@
 import java.util.ArrayList;
 
 public class Flota {
-
+    
+    private ArrayList<Avion> aviones;
     private ArrayList<Barco> barcos;
 
 
@@ -17,7 +18,20 @@ public class Flota {
 
     //consulta si puede confundir aviones aliados con aviones enemigos considerando las placas de estos
     public boolean problemaEnAire(){
-        return true;
+        if (this.tablero == null) {
+            return false;
+        }
+
+        // Obtener la lista de todas las placas de los aviones enemigos en el tablero
+        ArrayList<String> placasEnemigas = this.tablero.placasAvionesEnemigos(this);
+
+        // Verifica si algún avión propio tiene una placa que coincida con las enemigas
+        for (Avion miAvion : this.aviones) {
+            if (placasEnemigas.contains(miAvion.getPlaca())) {
+                return true;
+            }
+        }
+        return false;
     }
 
     // Devuelve la lista de barcos que serán destruidos en la posición (longitud, latitud)
