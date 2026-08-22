@@ -46,3 +46,26 @@ public class Flota {
         return destruidos;
     }
 }
+public class Avion {
+    private String placa;
+    private boolean enAire;
+// Devuelve la placa que identifica el avión
+    public String getPlaca() {
+        return this.placa;
+    }
+}
+public class Tablero {
+    private ArrayList<Flota> flotas;
+    //Retorna lista de placas de todos los aviones de las flotas excepto la flota que se está consultando.
+    public ArrayList<String> placasAvionesEnemigos(Flota flotaActual) {
+        ArrayList<String> placas = new ArrayList<String>();
+        for (Flota flota : this.flotas) {
+            if (flota != flotaActual) {
+                for (Avion avion : flota.getAviones()) {
+                    placas.add(avion.getPlaca());
+                }
+            }
+        }
+        return placas;
+    }
+}
